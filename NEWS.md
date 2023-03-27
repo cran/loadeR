@@ -105,3 +105,17 @@
 # loadeR 1.1.3
 
 * Mispelled tags were fixed.
+
+# loadeR 1.1.4
+
+* More tags are added.
+
+# loadeR 1.1.5
+
+* Package XLConnect is replaced by readxl.
+* Github page of the package is added in description.
+
+# loadeR 1.1.6
+
+* Update website on description.
+
