@@ -13,7 +13,7 @@ mod_carga_datos_server(
 )
 }
 \arguments{
-\item{id}{Internal parameters for {shiny}.}
+\item{id}{Internal parameters for shiny.}
 
 \item{updateData}{shiny reactive values.}
 

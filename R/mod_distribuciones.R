@@ -1,12 +1,13 @@
 #' distribuciones UI Function
 #'
-#' @param id Internal parameters for {shiny}.
+#' @param id Internal parameters for shiny.
 #'
 #' @author Diego Jimenez <diego.jimenez@promidat.com>
 #' @return shiny ui module.
 #' @export mod_distribuciones_ui
 #' @import shiny
 #' @import shinydashboardPlus
+#' @importFrom grDevices boxplot.stats
 #' 
 mod_distribuciones_ui <- function(id){
   ns <- NS(id)
@@ -61,7 +62,7 @@ mod_distribuciones_ui <- function(id){
     
 #' distribuciones Server Function
 #'
-#' @param id Internal parameters for {shiny}.
+#' @param id Internal parameters for shiny.
 #' @param updateData shiny reactive values.
 #' @param codedioma shiny reactive values.
 #'

@@ -7,7 +7,7 @@
 mod_distribuciones_server(id, updateData, codedioma)
 }
 \arguments{
-\item{id}{Internal parameters for {shiny}.}
+\item{id}{Internal parameters for shiny.}
 
 \item{updateData}{shiny reactive values.}
 

@@ -1,6 +1,6 @@
 #' r_numerico UI Function
 #'
-#' @param id Internal parameters for {shiny}.
+#' @param id Internal parameters for shiny.
 #'
 #' @author Diego Jimenez <diego.jimenez@promidat.com>
 #' @return shiny ui module.
@@ -32,7 +32,7 @@ mod_r_numerico_ui <- function(id) {
 
 #' r_numerico Server Function
 #'
-#' @param id Internal parameters for {shiny}.
+#' @param id Internal parameters for shiny.
 #' @param updateData shiny reactive values.
 #' @param codedioma shiny reactive values.
 #'

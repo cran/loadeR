@@ -1,6 +1,6 @@
 #' correlacion UI Function
 #'
-#' @param id Internal parameters for {shiny}.
+#' @param id Internal parameters for shiny.
 #'
 #' @author Diego Jimenez <diego.jimenez@promidat.com>
 #' @return shiny ui module.
@@ -51,7 +51,7 @@ mod_correlacion_ui <- function(id){
     
 #' correlacion Server Function
 #'
-#' @param id Internal parameters for {shiny}.
+#' @param id Internal parameters for shiny.
 #' @param updateData shiny reactive values.
 #' @param codedioma shiny reactive values.
 #'

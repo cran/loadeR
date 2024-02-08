@@ -1,6 +1,6 @@
 #' carga_datos UI Function
 #'
-#' @param id Internal parameters for {shiny}.
+#' @param id Internal parameters for shiny.
 #' @param title Display title for tab.
 #' @param paquete indicates if the data is going to be used for exploratory, predictive, or regression analysis.
 #' 
@@ -169,7 +169,7 @@ mod_carga_datos_ui <- function(id, title, paquete = "predictoR") {
 
 #' carga_datos Server Functions.
 #'
-#' @param id Internal parameters for {shiny}.
+#' @param id Internal parameters for shiny.
 #' @param updateData shiny reactive values.
 #' @param modelos shiny reactive values.
 #' @param codedioma shiny reactive values.

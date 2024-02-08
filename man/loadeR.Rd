@@ -3,6 +3,7 @@
 \docType{package}
 \name{loadeR}
 \alias{loadeR}
+\alias{loadeR-package}
 \title{Read Data System}
 \description{
 Provides a framework to load text and excel files through a 'shiny' graphical interface. It allows renaming, transforming, ordering and removing variables. It includes basic exploratory methods such as the mean, median, mode, normality test, histogtram and correlation.
@@ -11,10 +12,19 @@ Provides a framework to load text and excel files through a 'shiny' graphical in
 \tabular{ll}{
 Package: \tab loadeR\cr
 Type: \tab Package\cr
-Version: \tab 1.1.6\cr
-Date: \tab 2023-03-27\cr
+Version: \tab 1.1.8\cr
+Date: \tab 2024-02-07\cr
 License: \tab GPL (>=2)\cr
 }
+}
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://promidat.website}
+  \item \url{https://github.com/PROMiDAT/loadeR}
+  \item Report bugs at \url{https://github.com/PROMiDAT/loadeR/issues}
+}
+
 }
 \author{
 Maintainer: Oldemar Rodriguez Rojas <oldemar.rodriguez@ucr.ac.cr>\cr

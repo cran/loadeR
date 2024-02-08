@@ -7,7 +7,7 @@
 mod_carga_datos_ui(id, title, paquete = "predictoR")
 }
 \arguments{
-\item{id}{Internal parameters for {shiny}.}
+\item{id}{Internal parameters for shiny.}
 
 \item{title}{Display title for tab.}
 

@@ -1,6 +1,5 @@
 #' @name loadeR
-#' @aliases loadeR
-#' @docType package
+#' @aliases loadeR-package
 #' @title Read Data System
 #' @author
 #' Maintainer: Oldemar Rodriguez Rojas <oldemar.rodriguez@ucr.ac.cr>\cr
@@ -15,12 +14,12 @@
 #' \tabular{ll}{
 #' Package: \tab loadeR\cr
 #' Type: \tab Package\cr
-#' Version: \tab 1.1.6\cr
-#' Date: \tab 2023-03-27\cr
+#' Version: \tab 1.1.8\cr
+#' Date: \tab 2024-02-07\cr
 #' License: \tab GPL (>=2)\cr
 #' }
 #' @keywords package
-#' @docType package
+"_PACKAGE"
 
 NULL
 utils::globalVariables(c(

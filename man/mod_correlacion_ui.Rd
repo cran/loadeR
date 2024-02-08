@@ -7,7 +7,7 @@
 mod_correlacion_ui(id)
 }
 \arguments{
-\item{id}{Internal parameters for {shiny}.}
+\item{id}{Internal parameters for shiny.}
 }
 \value{
 shiny ui module.
