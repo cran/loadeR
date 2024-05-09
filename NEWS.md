@@ -123,3 +123,11 @@
 
 * The e_histogram function is corrected for Windows.
 
+# loadeR 1.1.9
+
+* Table visualization shows a maximum of 3 decimals.
+
+# loadeR 1.2.0
+
+* Table visualization preview shows a maximum of 3 decimals.
+

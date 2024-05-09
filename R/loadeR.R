@@ -14,8 +14,8 @@
 #' \tabular{ll}{
 #' Package: \tab loadeR\cr
 #' Type: \tab Package\cr
-#' Version: \tab 1.1.8\cr
-#' Date: \tab 2024-02-07\cr
+#' Version: \tab 1.2.0\cr
+#' Date: \tab 2024-05-09\cr
 #' License: \tab GPL (>=2)\cr
 #' }
 #' @keywords package

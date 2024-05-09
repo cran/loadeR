@@ -1,14 +1,14 @@
-3d81db1603688ad84033e64fb678c384 *DESCRIPTION
+11779a786d8617c2efa771e472fe8df6 *DESCRIPTION
 227c77fe339e3fca01120b12d6c8127c *NAMESPACE
-95e9c80e35c09a0b48f258fe9a68e029 *NEWS.md
+6574a9080ce1808dc5d5030679c49bb3 *NEWS.md
 fb97aa75447794cf85afdd984710ca17 *R/app_config.R
 f6976ccea2951b3f96ddcedf485bde1d *R/app_server.R
 882a51ba267ef597ab3a5187dea63320 *R/app_ui.R
 43e3280ee6434886a1be3bcab7fb078f *R/golem_utils_server.R
 dafc68139eba1c67af9ac3eef7f24c5f *R/golem_utils_ui.R
-40660719799c19239b2c7adf7b5218a9 *R/loadeR.R
-7bd1b13197c4eb1c1a15a503dacfac55 *R/mod_acercade.R
-aff8eeca4f27f9b4e518aead7de843c6 *R/mod_carga_datos.R
+b3a46f8f78a280aa53c9f67c0e16139f *R/loadeR.R
+c4cd22105cedf66d7f007dc54c719ec8 *R/mod_acercade.R
+37f5e96f9c4a84e04b283d4fd8613c3d *R/mod_carga_datos.R
 5b3dc8ecd79e622e766a37996413b8d8 *R/mod_carga_datos_fct.R
 13209a768ea2e065f8fdd863cc752dec *R/mod_carga_datos_utils.R
 f8056acb6bdeb3b638978beb4ec30029 *R/mod_correlacion.R
@@ -44,7 +44,7 @@ cbc06a9517dd140993ea097cd225cf0b *inst/app/www/loader_style.css
 1902106a847b2e5db9a712da36fd1bed *inst/assets/resumenNumerico/resumenNumerico.css
 ce325733330a849f0524645966250140 *inst/assets/tabsOptions/tabsOptions.css
 dec951232f2c5a00a6bd22a553d1c813 *inst/assets/tabsOptions/tabsOptions.js
-d8f8006c5a630833caee228b153e7542 *inst/golem-config.yml
+013416c3d52578a085e0f1d9afde8af3 *inst/golem-config.yml
 60d7b07d8cad5aa39d92b11b7ed8ce83 *man/addoutliersh.Rd
 89c2fae6689f953e0aecadf0cd2bdd2c *man/carga.datos.Rd
 4c2c30ad9880cc618c9b6897dda8b1be *man/carga.datos.excel.Rd
@@ -62,7 +62,7 @@ c8ef8f58f44dda5c5ccfc9f5940b89cd *man/e_qq.Rd
 a26d96556355ff95932f319baf13f8df *man/labelInput.Rd
 d58fad3d0c848e442a9c74c4f15b540b *man/labels_loadeR.Rd
 e3649c5bcd2771bd2d27599002930993 *man/listoutliers.Rd
-cc312ea5aa48c990039defbffc46143a *man/loadeR.Rd
+bb21d5c7da83a6887819690436da72a1 *man/loadeR.Rd
 1ead3880d8434823e4a86003aed3522e *man/menu.idioma.Rd
 9bc7a1c91f10c98182affd7b5d91da55 *man/mod_carga_datos_server.Rd
 11b159387395340920f401ca3c027481 *man/mod_carga_datos_ui.Rd

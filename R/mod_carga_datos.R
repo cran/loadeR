@@ -495,6 +495,11 @@ mod_carga_datos_server <- function(id, updateData, modelos, codedioma, paquete =
         }
         preview <- carga.datos(
           rowname, ruta$datapath, sep, dec, encabezado, deleteNA, T)
+        for (x in colnames(preview)) {
+          if(class(preview[, x]) %in% c("numeric", "integer")) {
+            preview[, x] <- round(preview[, x], 3)
+          }
+        }
         DT::datatable(
           preview, options = list(dom = 'rt', ordering = FALSE), 
           selection = 'none', container = prevsketch(preview, tipos)
@@ -526,6 +531,11 @@ mod_carga_datos_server <- function(id, updateData, modelos, codedioma, paquete =
         preview <- carga.datos.excel(
           ruta$datapath, num_hoja, encabezado, fila_inicio, col_inicio, 
           fila_final, col_final, rowname, deleteNA, T)
+        for (x in colnames(preview)) {
+          if(class(preview[, x]) %in% c("numeric", "integer")) {
+            preview[, x] <- round(preview[, x], 3)
+          }
+        }
         DT::datatable(
           preview, options = list(dom = 'rt', ordering = FALSE), 
           selection = 'none', container = prevsketch(preview, tipos)
@@ -567,6 +577,11 @@ mod_carga_datos_server <- function(id, updateData, modelos, codedioma, paquete =
           }
           
           nombres <- setdiff(colnames(datos.tabla), colnames(datos))
+          for (x in colnames(datos.tabla)) {
+            if(class(datos.tabla[, x]) %in% c("numeric", "integer")) {
+              datos.tabla[, x] <- round(datos.tabla[, x], 3)
+            }
+          }
           res     <- DT::datatable(
             datos.tabla, selection = 'none', editable = TRUE,
             extensions = 'Buttons',
