@@ -30,15 +30,13 @@ app_server <- function(input, output, session) {
   ##################################  Variables  ##############################
   
   updateData <- rv(
-    datos = NULL, originales = NULL, datos.tabla = NULL, datos.prueba = NULL, 
-    datos.aprendizaje = NULL, variable.predecir = NULL, indices = NULL, 
-    numGrupos = NULL, numValC = NULL, grupos = NULL)
+    datos = NULL, originales = NULL, datos.tabla = NULL,
+    variable.predecir = NULL, numGrupos = NULL, numValC = NULL, 
+    grupos = NULL, numTT = NULL)
+  
+  modelos <- rv(modelo = NULL)
   
   codedioma <- rv(idioma = "es", code = list())
-  
-  modelos <- rv(
-    svm = NULL, knn = NULL, bayes = NULL, rl = NULL, rlr = NULL, xgb = NULL,
-    boosting = NULL, rf = NULL, nn = NULL, dt = NULL)
   
   ###################################  Update  ################################
   

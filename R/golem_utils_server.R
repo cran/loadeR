@@ -119,8 +119,8 @@ labels_loadeR <- function() {
 # Función para generar diccionario.
 # crear.traslation <- function() {
 #   library(plyr)
-#   archivo <- read.table("diccionario.csv", header = TRUE, sep = ";", as.is = TRUE)
+#   archivo <- read.table("inst/app/lang/diccionario.csv", header = TRUE, sep = ";", as.is = TRUE)
 #   translation.loadeR <- dlply(archivo , .(key), function(s) key = as.list(s))
 #   
-#   save(translation.loadeR, file = "translation_loadeR.bin")
+#   save(translation.loadeR, file = "inst/app/lang/translation_loadeR.bin")
 # }

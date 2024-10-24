@@ -102,7 +102,7 @@ mod_carga_datos_ui <- function(id, title, paquete = "predictoR") {
       icon("play"), tags$a(labelInput("run"), style = "color:white"))))
   
   particion <- list(
-    options.run(ns("run_pred")), tags$hr(style = "margin-top: 0px;"),
+    options.run(ns("run_pred"), "gendat"), tags$hr(style = "margin-top: 0px;"),
     selectInput(ns("sel.predic.var"), label = labelInput("selpred"), choices = ""),
     tabsetPanel(
       type = "tabs", id = ns("part_metodo"),
@@ -117,14 +117,15 @@ mod_carga_datos_ui <- function(id, title, paquete = "predictoR") {
         sliderInput(ns("n_tt"), label = div(
           div(style = 'float: left; color: #428bca;', labelInput('train')),
           div(style = 'float: right; color: #91cc75;', labelInput('test'))),
-          5, 95, 80, 5)
+          5, 95, 80, 5),
+        numericInput(ns("numTT"), labelInput("nvc"), 1, width = "100%", min = 1)
       ),
       tabPanel(
         labelInput("cros"),
         div(
           col_6(numericInput(ns("numGrupos"), labelInput("ngr"), 5, 
                              width = "100%", min = 1)),
-          col_6(numericInput(ns("numVC"), labelInput("nvc"), 1, 
+          col_6(numericInput(ns("numVC"), labelInput("nvc"), 3, 
                              width = "100%", min = 1))
         )
       )
@@ -349,11 +350,16 @@ mod_carga_datos_server <- function(id, updateData, modelos, codedioma, paquete =
     seleccionar <- function(indice, i) {
       grupos <- updateData$grupos[[as.numeric(i)]]
       nom.grupo  <- vector(mode = "character", length = nrow(updateData$datos.tabla))
-      for (grupo in 1:length(grupos)) {
-        nom.grupo[grupos[[grupo]]] <- paste0("Gr_", grupo)
+      if(is.null(grupos$train)) {
+        for (grupo in 1:length(grupos)) {
+          nom.grupo[grupos[[grupo]]] <- paste0("Gr_", grupo)
+        }
+      } else {
+        nom.grupo[grupos$train] <- "train"
+        nom.grupo[grupos$test] <- "test"
       }
-      sampleopt$valor <- i
       
+      sampleopt$valor <- i
       updateData$datos.tabla$part <- as.factor(nom.grupo)
     }
     
@@ -562,18 +568,14 @@ mod_carga_datos_server <- function(id, updateData, modelos, codedioma, paquete =
                    paste0("<span data-id='cat'><i class='fa fa-font wrapper-tag'></i><br>", tipos[2], "</span>")))
           
           if(colnames(datos.tabla)[1] == "part") {
-            if("Gr_1" %in% datos.tabla$part) {
-              tipo.columnas[1] <- paste0(
-                '<div>\n',
-                '  <span>\n',
-                '    ', tr("vali", idioma), '\n',
-                '  </span>\n',
-                selectInputGroup(ns('accion'), datos.tabla, 1, idioma, length(updateData$grupos), isolate(sampleopt$valor)),
-                '</div>'
-              )
-            } else {
-              tipo.columnas[1] <- "<span></span>"
-            }
+            tipo.columnas[1] <- paste0(
+              '<div>\n',
+              '  <span>\n',
+              '    ', tr("vali", idioma), '\n',
+              '  </span>\n',
+              selectInputGroup(ns('accion'), datos.tabla, 1, idioma, length(updateData$grupos), isolate(sampleopt$valor)),
+              '</div>'
+            )
           }
           
           nombres <- setdiff(colnames(datos.tabla), colnames(datos))
@@ -582,7 +584,7 @@ mod_carga_datos_server <- function(id, updateData, modelos, codedioma, paquete =
               datos.tabla[, x] <- round(datos.tabla[, x], 3)
             }
           }
-          res     <- DT::datatable(
+          res <- DT::datatable(
             datos.tabla, selection = 'none', editable = TRUE,
             extensions = 'Buttons',
             container = sketch(
@@ -670,16 +672,30 @@ mod_carga_datos_server <- function(id, updateData, modelos, codedioma, paquete =
             variable   <- isolate(input$sel.predic.var)
             seed       <- isolate(input$seed)
             aseed      <- isolate(input$aseed)
+            numTT      <- isolate(input$numTT)
+            grupos     <- vector(mode = "list", length = numTT)
             
-            res <- segmentar.datos(datos, variable, porcentaje, seed, aseed)
+            if(numTT > 20 | numTT < 1) {
+              msg <- paste0(
+                "ERROR (CD040): El numero de validaciones cruzadas no es valida. ",
+                "Debe ser un valor entre 1 y 20.")
+              showNotification(msg, type = "error")
+              stop()
+            }
+            
+            for(i in 1:numTT) {
+              res <- segmentar.datos(datos, variable, porcentaje, seed, aseed)
+              grupo <- list(train = res$indices, test = which(!1:nrow(datos) %in% res$indices))
+              grupos[i] <- list(grupo)
+            }
             updateData$variable.predecir <- variable
-            updateData$datos.prueba      <- res$test
-            updateData$datos.aprendizaje <- res$train
+            updateData$grupos            <- grupos
+            updateData$numTT             <- numTT
+            
             nom.part <- vector(mode = "character", length = nrow(datos))
-            nom.part[res$indices]  <- "train"
-            nom.part[-res$indices] <- "test"
+            nom.part[grupos[[1]]$train] <- "train"
+            nom.part[grupos[[1]]$test]  <- "test"
             updateData$datos.tabla <- cbind(part = as.factor(nom.part), updateData$datos.tabla)
-            updateData$indices     <- res$indices
             
             cod <- code.segment.tt(variable, porcentaje, seed, aseed)
             codedioma$code <- append(codedioma$code, cod)

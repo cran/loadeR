@@ -131,3 +131,8 @@
 
 * Table visualization preview shows a maximum of 3 decimals.
 
+# loadeR 1.3.0
+
+* Now you can generate experiments for train-test.
+* Some labels were corrected.
+

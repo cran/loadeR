@@ -466,6 +466,7 @@ infoBoxPROMiDAT <- function(titulo, valor, icono) {
 #' Creates a button to use in a options menu. 
 #' 
 #' @param runid The input slot that will be used to access the value.
+#' @param label A label on the top of the menu.
 #'
 #' @author Diego Jimenez <diego.jimenez@promidat.com>
 #' @return An HTML element.
@@ -474,10 +475,10 @@ infoBoxPROMiDAT <- function(titulo, valor, icono) {
 #' @examples
 #' options.run("id")
 #' 
-options.run <- function(runid) {
+options.run <- function(runid, label = "opts") {
   tags$div(
     style = "display: inline-block; width: 100%", 
-    shiny::h4(labelInput("opts"), 
+    shiny::h4(labelInput(label), 
               style = "float: left;margin-bottom: 0px;margin-top: 0px;"),
     tags$button(
       id = runid, type = "button", class = "run-button action-button", 

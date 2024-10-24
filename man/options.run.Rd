@@ -4,10 +4,12 @@
 \alias{options.run}
 \title{Creates a button to use in a options menu.}
 \usage{
-options.run(runid)
+options.run(runid, label = "opts")
 }
 \arguments{
 \item{runid}{The input slot that will be used to access the value.}
+
+\item{label}{A label on the top of the menu.}
 }
 \value{
 An HTML element.
